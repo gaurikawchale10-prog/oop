@@ -1,0 +1,139 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class student{
+private:
+int rollnumber;
+string name;
+string course;
+int admissionyear;
+
+public:
+//Function to input student data
+void inputdetails(){
+cout<<"Enter roll number: ";
+cin>>rollnumber;
+cin.ignore();
+
+cout<<"Enter name: ";
+getline(cin,name);
+
+cout<<"Enter course: ";
+getline(cin,course);
+
+cout<<"Enter Admission Year: ";
+cin>>admissionyear;
+
+cout<<"--------------------\n";
+}
+
+//function to display student data
+void displatDetails()const{
+
+cout<<"roll Number: ",,rollnumber<<"\n";
+cout<<"Name: "<<name<<"\n";
+cout<<"course: "<<course<<"\n";
+cout<<"Admission Year: "<<admissionyear<<"\n";
+cout<<"---------------------\n";
+}
+
+//Function to get roll number
+int getRollNumber()const{
+return rollnumber;}
+};
+
+int main(){
+const int MAX_STUDENTS = 100;
+
+//Array of student obj
+Student Database[MAX_STUDENTS];
+
+//Variable to keep track of number of students
+int currentCount = 0;
+
+int choice;
+cout<<"=== College Record Digitization System ===\n"
+
+do{
+//Display the Menu
+cout<<"\n1.Add New Student Record\n";
+cout<<"2.Display All Student Record\n";
+cout<<"3.Search Student by roll number\n";
+cout<<"4.Exit\n";
+
+cout<<"Enter your Choice: ";
+cin>>choice;
+
+cout<<"\n";
+switch(choice){
+
+//Add new Student record
+case1:
+if(currentChoice<MAX_STUDENT){
+cout<<"---Enter Details of Student: "<<currentCount+1<<"---\n";
+
+//Store Student Details
+database[currentCount].inputDetails();
+
+//Increase number of student records
+currentCount++;
+
+cout<<"Record Saved Successfully!\n";
+}
+else{
+cout<<"Database Full! Cannot Add More. \n";
+}
+break;
+
+//Display all student records
+Case 2:
+if(currentCount==0){
+cout<<"No Student Records Avaible. \n";}
+else{
+cout<<"---Total Student Records---\n";
+
+//Display each student
+for(int i = 0<currentCount,i++){
+database[i].displayDetails();}
+break;
+
+//Search for studnt using roll number
+case 3:
+if (currentCount==0){
+cout<<"NO Student Records Avaible to search.\n";
+break;}
+
+int searchRoll;
+bool found = false;
+
+cout<<"Enter Roll Number to Search: ";
+cin>>searchRoll;
+cout<<"\n";
+
+//Search through student records
+for (int i = 0; i<currentCount, i++){
+if(databse[i].getRollNumber()==searchRoll){
+cout<<"---Record Found---\n";
+databse[i].displayDetails();
+found = true
+
+//Stop searching after finding student
+break;}
+}
+
+//Dosplay message if student not found
+if(found==false){
+cout<<"Student wit roll number"<<searchRoll<<"not found\n";}
+break;}
+
+//Exit Program
+case4:
+cout<<"Exiting Program. Goodbye\n";
+
+//Invalid Choice
+deafult:
+cout<<"Invalid! Choose between 1 and 4. \n";}
+}while(choice!=4);
+return 0;
+}
